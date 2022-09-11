@@ -1,0 +1,25 @@
+{
+  "name": "nats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.ts",
+    "start": "ts-node index.js",
+    "migration_generate": "ts-node ./node_modules/.bin/typeorm migration:generate ./src/models/database/migrations/migration  --dataSource ./ormconfig.ts",
+    "migration_create": "ts-node ./node_modules/.bin/typeorm migration:create ./src/models/database/migrations/migration "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^18.7.16",
+    "dotenv": "^16.0.2",
+    "pg": "^8.8.0",
+    "typeorm": "^0.3.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19",
+    "ts-node": "^10.9.1"
+  }
+}
