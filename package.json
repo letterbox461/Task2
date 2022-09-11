@@ -11,16 +11,7 @@
   "author": "yryabinin",
   "license": "ISC",
   "dependencies": {
-    "@hapi/hapi": "^20.2.2",
-    "@hapi/inert": "^7.0.0",
-    "@hapi/vision": "^7.0.0",
     "dotenv": "^16.0.2",
-    "hapi-swagger": "^14.5.5",
     "ts-node": "^10.9.1"
-  },
-  "devDependencies": {
-    "@types/hapi__inert": "^5.2.3",
-    "@types/hapi__vision": "^5.5.3",
-    "nodemon": "^2.0.19"
   }
 }
