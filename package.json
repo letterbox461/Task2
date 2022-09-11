@@ -6,7 +6,8 @@
   "scripts": {
     "api": "ts-node ./api/index.ts",
     "storage": "ts-node ./storage/index.ts",
-    "start": "npm run api & npm run storage"
+    "start": "npm run api & npm run storage",
+    "install_all": "node ./install.js"
   },
   "author": "yryabinin",
   "license": "ISC",

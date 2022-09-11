@@ -1,0 +1,49 @@
+version: '3.3'
+
+services:
+  main:
+    build: .
+    container_name: server
+    ports:      
+      - 8889:8889
+    env_file: ./.env
+    volumes:
+      - .:/app
+    links:
+      - postgres
+      - nats
+    depends_on:
+      - postgres
+      - nats
+   
+ 
+      
+
+  postgres:
+    container_name: postgres
+    image: letterbox461/db_for_task2
+    env_file:
+      - .env
+    environment:
+       PG_DATA: /var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    volumes:  
+      - db-data:/var/lib/postgresql/data
+    restart: always 
+      
+      
+  
+  nats:
+    container_name: natstest
+    image: nats
+    ports:
+      - 4222:4222
+      - 8222:8222
+    
+ 
+      
+volumes:
+  db-data:
+
+

@@ -32,7 +32,7 @@ class App {
   private async initServer() {
     this.server = Hapi.server({
       port: process.env.PORT || 5000,
-      host: process.env.HOST || "localhost",
+
       routes: {
         cors: {
           origin: ["*"],

@@ -7,7 +7,7 @@ export default new DataSource({
   username: String(process.env.DB_USERNAME),
   password: String(process.env.DB_PASSWORD),
   database: String(process.env.DB_DATABASE),
-  synchronize: false,
+  synchronize: true,
   cache: false,
   logging: false,
   entities: [`${__dirname}/src/models/database/entity/**/*{.ts,.js}`],
