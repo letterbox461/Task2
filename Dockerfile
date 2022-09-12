@@ -8,7 +8,10 @@ COPY ./storage/package*.json ./storage/
 COPY ./messageBroker/package*.json ./messageBroker/
 COPY ./install.js ./
 
-RUN npm run install_all
+RUN npm i
+RUN cd ./api && npm i
+RUN cd ./messageBroker && npm i
+RUN cd ./storage && npm i
 
 COPY . .
 
