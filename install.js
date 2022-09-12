@@ -5,7 +5,7 @@ var cp = require("child_process");
 var os = require("os");
 
 // get library path
-var lib = resolve(__dirname, "..");
+var lib = resolve(__dirname);
 
 fs.readdirSync(lib).forEach(function (mod) {
   var modPath = join(lib, mod);
