@@ -21,11 +21,11 @@ services:
 
   postgres:
     container_name: postgres
-    image: letterbox461/db_for_task2
+    image: letterbox461/pg_image_with_data_v2
     env_file:
       - .env
     environment:
-       PG_DATA: /var/lib/postgresql/data
+       PG_DATA: /postgres
     ports:
       - 5432:5432
     volumes:  
