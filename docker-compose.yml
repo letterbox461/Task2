@@ -5,7 +5,7 @@ services:
     build: .
     container_name: server
     ports:      
-      - 8889:8889
+      - 8888:8888
     env_file: ./.env
     volumes:
       - .:/app
@@ -20,7 +20,7 @@ services:
       
 
   postgres:
-    container_name: postgres
+    container_name: postgres_test
     image: letterbox461/pg_image_with_data_v2
     env_file:
       - .env
