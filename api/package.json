@@ -12,13 +12,18 @@
     "@hapi/hapi": "^20.2.2",
     "@hapi/inert": "^7.0.0",
     "@hapi/vision": "^7.0.0",
+    "axios": "^0.27.2",
     "dotenv": "^16.0.2",
     "hapi-swagger": "^14.5.5",
-    "ts-node": "^10.9.1"
+    "html-to-text": "^8.2.1",
+    "pdfmake": "^0.2.5",
+    "ts-node": "^10.9.1",
+    "wordlist-english": "^1.2.1"
   },
   "devDependencies": {
     "@types/hapi__inert": "^5.2.3",
     "@types/hapi__vision": "^5.5.3",
+    "@types/pdfmake": "^0.2.1",
     "nodemon": "^2.0.19"
   }
 }

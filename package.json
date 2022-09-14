@@ -7,11 +7,12 @@
     "api": "./node_modules/.bin/ts-node ./api/index.ts",
     "storage": "./node_modules/.bin/ts-node ./storage/index.ts",
     "start": "npm run api & npm run storage",
-    "install_all": "npm i & cd ./api && npm i & cd ./storage && npm i & cd ./messageBrocker && npm i"
+    "install_all": "npm i & node ./install.js"
   },
   "author": "yryabinin",
   "license": "ISC",
   "dependencies": {
+    "@types/pdfmake": "^0.2.1",
     "dotenv": "^16.0.2",
     "ts-node": "^10.9.1"
   }

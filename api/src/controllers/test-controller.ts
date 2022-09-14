@@ -24,10 +24,3 @@ class TestController {
 }
 
 export default new TestController();
-
-// (async () => {
-//   const nats = new Nats(process.env.NATS_ADDRESS || "localhost:4222");
-//   await nats.connect();
-//   const reply = await nats.request(process.env.NATS_SUB || "test", { id: 1 });
-//   return reply;
-// })();

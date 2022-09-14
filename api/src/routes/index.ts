@@ -1,5 +1,6 @@
 import Joi from "joi";
-import controller from "../controllers/test-controller";
+import controllerTest from "../controllers/test-controller";
+import controllerPdf from "../controllers/pdf-controller";
 
 export default [
   {
@@ -12,8 +13,32 @@ export default [
           userId: Joi.number().required(),
         }),
       },
-      handler: controller.test,
+      handler: controllerTest.test,
       tags: ["api", "test"],
+
+      plugins: {
+        "hapi-swagger": {
+          responses: {
+            200: {
+              description: '{"id":1, "firstName":"Ivan", lastName:"Ivanov"}',
+            },
+            400: { description: "Bad Request" },
+          },
+        },
+      },
+    },
+  },
+
+  {
+    method: "POST",
+    path: "/getPDF",
+    options: {
+      description: "Получить PDF файл согласно задания 1",
+      validate: {
+        payload: Joi.object({payload:Joi.array().items(Joi.string().uri())})
+      },
+      handler: controllerPdf.pdf,
+      tags: ["api", "pdf"],
 
       plugins: {
         "hapi-swagger": {

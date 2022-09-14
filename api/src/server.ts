@@ -3,6 +3,7 @@ import hapiswagger from "hapi-swagger";
 import Vision from "@hapi/vision";
 import Inert from "@hapi/inert";
 import Router from "./routes";
+import path from "path";
 
 class App {
   private server!: Hapi.Server;
@@ -37,6 +38,9 @@ class App {
         cors: {
           origin: ["*"],
         },
+        // files: {
+        //   relativeTo: path.join(__dirname, "..", "public"),
+        // },
       },
     });
     await this.addPlugins();

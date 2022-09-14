@@ -21,7 +21,7 @@ services:
 
   postgres:
     container_name: postgres_test
-    image: letterbox461/pg_image_with_data_v2
+    image: letterbox461/my-postgres-image
     env_file:
       - .env
     environment:
