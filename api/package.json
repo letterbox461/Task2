@@ -12,11 +12,13 @@
     "@hapi/hapi": "^20.2.2",
     "@hapi/inert": "^7.0.0",
     "@hapi/vision": "^7.0.0",
+    "@types/html-to-text": "^8.1.1",
     "axios": "^0.27.2",
     "dotenv": "^16.0.2",
     "hapi-swagger": "^14.5.5",
     "html-to-text": "^8.2.1",
     "pdfmake": "^0.2.5",
+    "russian-words": "^1.0.1",
     "ts-node": "^10.9.1",
     "wordlist-english": "^1.2.1"
   },

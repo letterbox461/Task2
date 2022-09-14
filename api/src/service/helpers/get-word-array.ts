@@ -1,28 +1,20 @@
 // @ts-ignore
 import * as wordListEng from "wordlist-english";
 import axios from "axios";
-// @ts-ignore
 import { convert } from "html-to-text";
-import fs from "fs";
 import ParseError from "../../../errors/parse-error";
-import path from 'path'
+// @ts-ignore
+import wordsRus from "../../../assets/russianwords/words";
 
 // подключение словарей
 const wordlistEng: string[] = wordListEng["english"];
 const wordlistUS: string[] = wordListEng["english/american"];
-
-
-
-let rusDictString: string = fs
-  .readFileSync(path.join(__dirname,'..','..','..','assets','russian-words','russian.utf-8.txt'))
-  .toString();
-
-const wordlistRus: string[] = rusDictString.split("\n");
+const wordListRus: string[] = wordsRus;
 
 const wordlistCombined: string[] = [
   ...wordlistEng,
   ...wordlistUS,
-  ...wordlistRus,
+  ...wordListRus,
 ];
 
 wordlistCombined.forEach(
@@ -44,13 +36,14 @@ const getText = async (URL: string): Promise<string[]> => {
     }
     return dataArr;
   } catch (e) {
-
     throw e;
   }
 };
 
 //найдем количество вхождений каждого элемента
-const getElementQty = async (URL:string): Promise<{ word: string; qty: number }[]> => {
+const getElementQty = async (
+  URL: string
+): Promise<{ word: string; qty: number }[]> => {
   const arr: string[] = await getText(URL);
   const arrWithQty: { word: string; qty: number }[] = [];
 
@@ -72,7 +65,7 @@ const PDFData: { url: string; words: string[] }[] = [];
 
 //отсортируем данные по количеству вхождений,
 // добавим топ-3 в итоговый массив, предварительно проверив по словарям
-const getFinalData = async (URL:string) => {
+const getFinalData = async (URL: string) => {
   const data = await getElementQty(URL);
   data.sort((a, b) => {
     return b.qty - a.qty;
@@ -90,7 +83,7 @@ const getFinalData = async (URL:string) => {
 
 // Заполнение итогового массива данных.
 // Воспользуемся параллельным выполнением промисов
-const getPDFData = async (URLList:string[]) => {
+const getPDFData = async (URLList: string[]) => {
   const promises = URLList.map(getFinalData);
   await Promise.all(promises);
   return PDFData;

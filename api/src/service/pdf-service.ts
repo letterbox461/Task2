@@ -4,7 +4,6 @@ import pdfMake from "pdfmake/src/printer";
 import getPDFData from "./helpers/get-word-array";
 import fs from "fs";
 
-
 class pdfService {
   public async createPDF(urlList: string[]) {
     const PDFData = await getPDFData(urlList);
@@ -65,15 +64,13 @@ class pdfService {
     const printer: any = new pdfMake(fonts);
     const pdfDoc = printer.createPdfKitDocument(pdfData);
     const pdfDocPath = path.join(__dirname, "..", "..", "public", "report.pdf");
-
-    await new Promise((resolve,reject)=>{
-      const stream= fs.createWriteStream(pdfDocPath)
-      pdfDoc.pipe(stream)
-      pdfDoc.end()
-      stream.on('finish',()=>resolve(true))
-    })
-
-
+    if (fs.existsSync(pdfDocPath)) fs.unlinkSync(pdfDocPath);
+    await new Promise((resolve, reject) => {
+      const stream = fs.createWriteStream(pdfDocPath);
+      pdfDoc.pipe(stream);
+      pdfDoc.end();
+      stream.on("finish", () => resolve(true));
+    });
 
     return pdfDocPath;
   }

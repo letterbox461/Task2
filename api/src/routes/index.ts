@@ -20,7 +20,7 @@ export default [
         "hapi-swagger": {
           responses: {
             200: {
-              description: '{"id":1, "firstName":"Ivan", lastName:"Ivanov"}',
+              description: "JSON массив с данными пользователя",
             },
             400: { description: "Bad Request" },
           },
@@ -35,7 +35,7 @@ export default [
     options: {
       description: "Получить PDF файл согласно задания 1",
       validate: {
-        payload: Joi.object({payload:Joi.array().items(Joi.string().uri())})
+        payload: Joi.object({ payload: Joi.array().items(Joi.string().uri()) }),
       },
       handler: controllerPdf.pdf,
       tags: ["api", "pdf"],
@@ -43,7 +43,7 @@ export default [
       plugins: {
         "hapi-swagger": {
           responses: {
-            200: { description: "OK" },
+            200: { description: "PDF отчет" },
             400: { description: "Bad Request" },
           },
         },

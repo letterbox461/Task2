@@ -6,7 +6,7 @@ class ParseError extends Error {
     this.message = message;
   }
 
-  public static parsingFailed(uri:string) {
+  public static parsingFailed(uri: string) {
     return new ParseError(500, `Failed to get text from ${uri}`);
   }
 }
